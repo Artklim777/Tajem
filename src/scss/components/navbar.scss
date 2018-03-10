@@ -1,0 +1,105 @@
+// $navbar-breakpoint:    768px;
+.navbar {
+	    padding-top: 15px;
+    overflow: hidden;
+    @include hook-navbar();
+    &-brand {float:left;
+    	margin-left:20px;
+        img {
+                    }
+        @include hook-navbar-brand();
+    }
+    &-nav {
+    	        padding-top: 10px;
+        list-style: none;
+        margin: 0;
+        padding-left: 10px;
+        float:right;
+
+        @include hook-navbar-nav();
+    }
+    &-item {display:inline-block;
+        border: 2px solid transparent;
+        position: relative;
+        padding: 5px 10px;
+        
+        a{
+        	color: #fff;
+          text-decoration: none;
+        }
+        &:hover {
+                border: 2px solid #00e1d1;
+                color: #00e1d1;
+            }
+        @include hook-navbar-item();
+    }
+    &-link {
+    	position: relative;
+        @include hook-navbar-link();
+    }
+    &-toggler {
+    	display: block;
+        padding: 7px 5px 5px;
+        border: 1px solid #00e1d1;
+        border-radius: 2px;
+        max-width: 42px;
+        max-height: 22px;
+        float: right;
+       margin-top: 10px;
+        margin-right: 20px;
+
+
+        .ico-bar {
+            display: block;
+            width: 30px;
+            border-top: 2px solid #00e1d1;
+            height: 3px;
+            margin-bottom: 4px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+        @include hook-navbar-toggler();
+        @media all and (min-width: $navbar-breakpoint) {
+            display: none;
+        }
+    }
+    &-collapse {
+        
+       
+
+        &.collapse {
+            display: block;
+            width: 100%;
+            display:flex;
+        flex-direction:column;
+        justify-content: center;
+            .navbar-nav {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            @media all and (min-width: $navbar-breakpoint) {
+                display: flex;
+                .navbar-nav {
+                    flex-direction: row;
+                }
+            }
+        }
+        @include hook-navbar-collapse();
+        @media all and (max-width: ($navbar-breakpoint - 1px)) {
+            display: none;
+        }
+    }
+}
+
+@include hook-navbar-misc();
+
+// @mixin hook-navbar() {};
+// @mixin hook-navbar-brand() {};
+// @mixin hook-navbar-nav() {};
+// @mixin hook-navbar-item() {};
+// @mixin hook-navbar-link() {};
+// @mixin hook-navbar-toggler() {};
+// @mixin hook-navbar-collapse() {};
+// @mixin hook-navbar-misc() {};
